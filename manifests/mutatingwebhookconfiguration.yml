@@ -1,4 +1,4 @@
-apiVersion: admissionregistration.k8s.io/v1beta1
+apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
   name: namespacenodeselector
@@ -7,10 +7,42 @@ webhooks:
     clientConfig:
       service:
         name: namespacenodeselector
-        namespace: default
+        port: 80
+        path: /webhook
+        namespace: namespacenodeselector
       caBundle: |
-        base64 encoded ca certificate...
+        LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVqVENDQXZXZ0F3SUJBZ0lRWUJ0MitNQ0cy
+        TCtSbTlQdjZNdjN2akFOQmdrcWhraUc5dzBCQVFzRkFEQmYKTVI0d0hBWURWUVFLRXhWdGEyTmxj
+        blFnWkdWMlpXeHZjRzFsYm5RZ1EwRXhHakFZQmdOVkJBc01FWEp2YjNSQQpZVFJtWVdNelptRTVN
+        V0ZrTVNFd0h3WURWUVFEREJodGEyTmxjblFnY205dmRFQmhOR1poWXpObVlUa3hZV1F3CkhoY05N
+        VGt4TWpFNE1UQTFNVEUwV2hjTk1qa3hNakU0TVRBMU1URTBXakJmTVI0d0hBWURWUVFLRXhWdGEy
+        TmwKY25RZ1pHVjJaV3h2Y0cxbGJuUWdRMEV4R2pBWUJnTlZCQXNNRVhKdmIzUkFZVFJtWVdNelpt
+        RTVNV0ZrTVNFdwpId1lEVlFRRERCaHRhMk5sY25RZ2NtOXZkRUJoTkdaaFl6Tm1ZVGt4WVdRd2dn
+        R2lNQTBHQ1NxR1NJYjNEUUVCCkFRVUFBNElCandBd2dnR0tBb0lCZ1FEVlNFb2tlM1lTazlpeURh
+        OFd1TTdLczRPWWxiaVZwOGVhczVWK2dyTjQKekNvbHU0ejZBV3UwaXhrRkVieHIvM2RaZUF2SW1T
+        R200UmpIaXVZOVZKWmtSdFZ3cFZaWHN0ekdKVkxva2dseQpLUnBEd29OcEk1REZmc2pDTXBNODM3
+        VVdOUjNnZ0poNnBGRVpKSTJRZGVhbWdyaUpkakUxa1pDT09JY25zQUVjCkxtcVZZK3N5Mjdmdi9t
+        bGpGZkVHYU01ZUsrM3RIN1IvN2RYaW9pbEI1Q3VxNjk4cTVra3E5YkpOcEwzZmRPaGMKVlM5dnQ4
+        VC95MDZKNFptdWxEcVNsbkRsOGpTYTVuS1ZOR1M1cHFUNU9uZmpubmNqdkt3ZmlQRGpuSCs0U3lv
+        OQo3ODB4dkRPdnM1Qm51cVlHRC82cWV4U0VKN3dUT1VTU085WmNqWFljNUV5cWdFUFlabXM3ZTRq
+        aSswMitQWFJBCmNGZWpLanM0RVpEMTBtWGIzWlNQZ2pOZGJueURtZkZRUTlDODYrdTMxVVZQZDI1
+        ZVNVTTJKMFlEa0liTS9FNjgKamFyc1hyZUw0UVpyTERiZ0hzdkRyS3piTDlBbWtFb0FTNG01cjNK
+        UTRaVFJyY21oajJmZHlPOXA1MkFaaE9pNQovaFgxdHA4OVhrTGN5QkI1amtBQWVMa0NBd0VBQWFO
+        Rk1FTXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1CSUdBMVVkCkV3RUIvd1FJTUFZQkFmOENBUUF3SFFZ
+        RFZSME9CQllFRk5RTDlzc1FKZTZGWXBCcTVoNW1pRGZ5OFF4WU1BMEcKQ1NxR1NJYjNEUUVCQ3dV
+        QUE0SUJnUUJUNzFYYjVZSnpTdEg5cndXbVQ4bWJHdHpwMTd0ejRFbG4yMnNGaXdWNAptb1ZXaVQ0
+        ME04YWZVYldlalQvZ2dlTy9rSFllQVd4emFOeUxMdzdOWFp6cU5jZVRkNGhqbCtjdzRPM05pSUxD
+        ClZnV1NzYWl3elNmRkhzZmZOTFowR1paZG15eXhHd3BxNndYa0JXbTlveEFZWjdoYmtZaFMxeGgz
+        K0k3SkFlZnoKM1BqZ2tWbHhBUVVWYmZSUU02aWtqN0x1M3VJNitUbUJrMEFGMTYxaVFsR3lOdWgy
+        VmdVTWtIV3pJUjR0ZENwWApabXpPN1lmMVRQVFUzaFAwSnIra1RQTEp3WklZTi9MUW9tNUYrcjIz
+        anJGOFZqVWZTYjRDYWJyaWFuWGoxeVkvCjc2YXVqbEd4R3BYbFcwZGZUbmhuUGNJTzVHT1ZKOUJ2
+        SVlzbW9PUXkrcDkyeXNHZExpTWRRY242N1FYbGM4Vm8KSXlTVFprNWZjdDAxTHlNbVJhb3FkdTh4
+        NWR3cDRNelNEV1Y3K1NtUnFINE13UUcxVEZhU1lBZkJZTlY3ekFjQwppcWJDVXhYZUtmdkEzQzZv
+        Q1kyeEdxQUYvR0hGYXNMZ2kxeGt3QVlPUlU5eGFFcmRqNFZOUlhkZ2VTOU90TUpwCnRDM2xlMWVF
+        d2JCK0VKeVlaVnhFR3hFPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
     sideEffects: NoneOnDryRun
+    admissionReviewVersions:
+      - v1
     rules:
       - operations:
           - CREATE
@@ -20,4 +52,7 @@ webhooks:
           - v1
         resources:
           - pods
-    namespaceSelector: {}
+    namespaceSelector:
+      matchExpressions:
+        - key: namespacenodeselector
+          operator: DoesNotExist

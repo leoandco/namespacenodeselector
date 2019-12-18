@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: namespacenodeselector
-  namespace: default
+  namespace: namespacenodeselector
 spec:
   selector:
     matchLabels:
@@ -12,9 +12,10 @@ spec:
       labels:
         app: namespacenodeselector
     spec:
+      serviceAccountName: namespacenodeselector
       containers:
         - name: namespacenodeselector
-          image: gcr.io/leoandco/namespacenodeselector
+          image: gcr.io/leoandco/namespacenodeselector:f69150b3d0dba043bac7ee8c12da8a127350607b
           env:
             - name: NSNS_CERTPATH
               value: /tls/cert
