@@ -1,6 +1,9 @@
 kind: pipeline
 type: kubernetes
 name: build
+when:
+  event: push
+  branch: master
 steps:
   - name: docker
     image: plugins/gcr
