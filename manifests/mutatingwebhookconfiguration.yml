@@ -1,0 +1,23 @@
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: namespacenodeselector
+webhooks:
+  - name: namespacenodeselector.leoxiong.dev
+    clientConfig:
+      service:
+        name: namespacenodeselector
+        namespace: default
+      caBundle: |
+        base64 encoded ca certificate...
+    sideEffects: NoneOnDryRun
+    rules:
+      - operations:
+          - CREATE
+        apiGroups:
+          - ''
+        apiVersions:
+          - v1
+        resources:
+          - pods
+    namespaceSelector: {}
