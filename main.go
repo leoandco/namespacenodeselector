@@ -38,8 +38,8 @@ func init() {
 func main() {
 	cmd.Flags().String("addr", "0.0.0.0", "ip addr to bind the webhook server to")
 	cmd.Flags().Int("port", 80, "port to bind the webhook server to")
-	cmd.Flags().String("certPath", "certPath.crt", "path to the tls certificate")
-	cmd.Flags().String("keyPath", "keyPath.", "path to the tls private keyPath")
+	cmd.Flags().String("cert-path", "cert.crt", "path to the tls certificate")
+	cmd.Flags().String("key-path", "key.", "path to the tls private key")
 	if err := viper.BindPFlags(cmd.Flags()); err != nil {
 		logger.Fatal(err)
 	}
