@@ -7,7 +7,7 @@ import (
 	"github.com/spf13/viper"
 	"io/ioutil"
 	"k8s.io/client-go/kubernetes"
-	"k8s.io/client-go/tools/clientcmd"
+	"k8s.io/client-go/rest"
 	"log"
 	"net/http"
 	"os"
@@ -56,7 +56,7 @@ func main() {
 		logger.Fatalf("The TLS private key does not exist: %s\n", err)
 	}
 
-	config, err := clientcmd.BuildConfigFromFlags("", "/home/leoxiong/.kube/config")
+	config, err := rest.InClusterConfig()
 	if err != nil {
 		log.Fatal(err)
 	}
