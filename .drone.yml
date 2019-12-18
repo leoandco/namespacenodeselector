@@ -1,0 +1,20 @@
+kind: pipeline
+type: kubernetes
+name: build
+steps:
+  - name: docker
+    image: plugins/gcr
+    settings:
+      repo: gcr.io/leoandco/namespacenodeselector
+      tags:
+        - latest
+        - ${DRONE_COMMIT}
+      json_key:
+        from_secret: gcr
+
+---
+kind: secret
+name: gcr
+get:
+  path: drone-gcr-secret
+  name: apikey
